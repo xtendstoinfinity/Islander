@@ -1,0 +1,204 @@
+:root {
+    font-size: 18px;
+    font-family: sans-serif;
+    --text-color: #ffffff;
+    --text-color-faded: rgba(198, 198, 198, 0.75);
+    --box-color-faded: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --bg-color-light: #141414;
+    --bg-color-dark: rgb(11, 11, 11);
+    --highlight-green: rgb(87, 175, 87);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-color);
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+body{
+    scrollbar-width: 0px;
+    color: var(--text-color);
+    background-color: var(--bg-color-dark);
+    margin: 0px;
+    padding: 170px 20px 0px 20px;
+}
+.active_page{
+    background-color: var(--box-color-faded);
+}
+.nav_bar{
+    background-color: var(--bg-color-light);
+    display: grid;
+    grid-template-columns: 50px 4fr 2fr;
+    grid-template-rows: 50px 50px;
+    gap: 20px;
+    padding: 20px 20px 0px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0px 5px 25px 10px var(--shadow-color);
+}
+#nav_pages_container{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 20px;
+}
+.nav_page a{
+    color: var(--text-color);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.nav_page{
+    width: 100px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    align-content: center;
+}
+.nav{
+    text-align: center;
+    align-content: center;
+    padding: 0;
+}
+#category_container{
+    grid-area: 2/1/2/4;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+.category_tag{
+    font-size: 0.8rem;
+    text-align: center;
+    align-content: center;
+    padding: 0px 15px;
+    margin: 0px 0px 20px 0px;
+    border-radius: 10px;
+    background-color: var(--box-color-faded);
+    cursor: pointer;
+}
+#sale{
+    background-color: var(--highlight-green);
+}
+#haunted{
+    color: rgb(219, 84, 84);
+}
+input::placeholder {
+  color: var(--text-color-faded);
+}
+#search_bar{
+    text-align: center;
+    font-size: 1rem;
+    background-color: var(--box-color-faded);
+    border: 1px solid var(--border-color);
+    border-style:dashed;
+    border-radius: 10px;
+    width: 100%;
+    padding: 14px 0px;
+    color: var(--text-color);
+}
+#logo{
+    cursor: pointer;
+    height: 36px;
+    width: 48px;
+}
+.content_container{
+    background-color: var(--bg-color-light);
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 20px 25px 10px var(--shadow-color);
+}
+.content_area{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(350px, 1fr));
+    gap: 20px;
+}
+.sell_area{
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    gap: 15px;
+}
+.sell_area div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.content{
+    aspect-ratio: 6 / 5;
+    display: flex;
+    flex-direction: column;
+    text-align:left;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color-light);
+}
+.img_dock{
+    margin: 15px;
+    background-color: var(--bg-color-dark);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+.content_info{
+    border: 1px solid black;
+    font-size: 1rem;
+    margin: 0px 15px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+}
+.content_info div{
+    border: 1px solid black;
+    display: block;
+    height: 100%;
+    overflow-wrap: break-word;
+}
+.content img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.footer{
+    margin-top: 10px;
+    display: block;
+    height: 150px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px 10px 0px 0px;
+    background-color: var(--bg-color-light);
+    box-shadow: 0px 20px 25px 10px var(--shadow-color);
+    text-align: center;
+    padding: 50px;
+}
+@media (max-width: 500px){
+    body{
+        background-color: var(--bg-color-light);
+    }
+}
+@media (min-width: 501px) and (max-width: 700px){
+    body{
+        background-color: var(--bg-color-light);
+    }
+}
+@media (min-width: 701px) and (max-width: 1000px){
+    body{
+        background-color: var(--bg-color-dark);
+    }
+}
+@media (min-width: 1001px) {
+    body{
+        background-color: var(--bg-color-light);
+    }
+}
