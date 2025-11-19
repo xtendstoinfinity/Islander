@@ -13,6 +13,8 @@
     --bg-color-dark: rgb(15, 15, 15);
     --highlight-green: rgb(87, 175, 87);
     --shadow-color: rgba(0, 0, 0, 0.5);
+    --button-color: rgb(62, 127, 62);
+    --button-highlight: rgb(87, 175, 87);
     color: var(--text-color);
 }
 #linkedin_logo{
@@ -176,6 +178,18 @@ input::placeholder {
     grid-template-columns: repeat(auto-fill,minmax(350px, 1fr));
     gap: 20px;
 }
+button{
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--button-color);
+    padding: 15px; 
+    border-radius: 10px;
+    border: none;
+}
+button:hover{
+    background-color: var(--button-highlight);
+    color: var(--text-color-bright);
+}
 .sell_area{
     display: flex;
     flex-direction: column;
@@ -189,15 +203,20 @@ input::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
+}   
 .content{
-    aspect-ratio: 6 / 5;
+    cursor: pointer;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     text-align:left;
     border-radius: 10px;
     border: 1px solid var(--border-color);
     background-color: var(--bg-color-light);
+}
+.content:hover{
+    background-color: var(--box-color-highly-faded);
+    box-shadow: 0px 0px 15px 5px var(--shadow-color);
 }
 .img_dock{
     margin: 15px;
@@ -207,16 +226,23 @@ input::placeholder {
     border-radius: 10px;
 }
 .content_info{
-    border: 1px solid black;
     font-size: 1rem;
     margin: 0px 15px;
     display: grid;
-    gap: 15px;
+    column-gap: 30px;
+    row-gap: 15px;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20px 35px;
+}
+.buy_button{
+    padding: 5px;
+    max-width: 150px;
+    width: 100%;
+    height: 100%;
 }
 .content_info div{
-    border: 1px solid black;
-    display: block;
+    display: flex;
+    align-items:end;
     height: 100%;
     overflow-wrap: break-word;
 }
@@ -236,6 +262,30 @@ input::placeholder {
     text-align: center;
     padding: 50px;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.file-upload {
+    display: none;
+}
+label{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 15px 5px;
+    height: 50px;
+    width: 195px;
+    border-radius: 10px;
+    border: 2px dashed var(--border-color);
+}
+label:hover{
+    color: var(--text-color-bright);
+    border: 2px dashed var(--box-color-faded);
+    background-color: var(--box-color-faded);
+}
 @media (max-width: 935px) {
     body{
         padding-top: 240px;
@@ -244,7 +294,7 @@ input::placeholder {
     grid-template-columns: 225px 1fr;
     grid-template-rows: 50px 50px 50px;
     gap: 20px;
-    padding: 20px 20px 0px 20px;
+    padding: 20px 0px 0px 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -254,7 +304,7 @@ input::placeholder {
     box-shadow: 0px 5px 25px 10px var(--shadow-color);
 }
 #category_container{
-    grid-area: 3/1/4/4;
+    grid-area: 3/1/4/3;
     display: flex;
     gap: 15px;
     overflow-x: auto;
