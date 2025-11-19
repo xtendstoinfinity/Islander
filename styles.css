@@ -15,6 +15,8 @@
     --shadow-color: rgba(0, 0, 0, 0.5);
     --button-color: rgb(62, 127, 62);
     --button-highlight: rgb(87, 175, 87);
+    --transition-duration: 150ms;
+    --transition-ease: ease-in-out;
     color: var(--text-color);
 }
 #linkedin_logo{
@@ -54,7 +56,7 @@ body{
     color: var(--text-color);
     background-color: var(--bg-color-dark);
     margin: 0px;
-    padding: 170px 20px 0px 20px;
+    padding: 160px 20px 0px 20px;
 }
 .active_page{
     background-color: var(--box-color-faded);
@@ -73,6 +75,7 @@ body{
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    transition: var(--transition-duration) var(--transition-ease);
 }
 .active_page a{
     color: var(--text-color-glow);
@@ -104,6 +107,7 @@ body{
     cursor: pointer;
     text-align: center;
     align-content: center;
+    transition: var(--transition-duration) var(--transition-ease);
 }
 .nav{
     text-align: center;
@@ -170,6 +174,10 @@ input::placeholder {
     border-radius: 10px;
     border: 1px solid var(--border-color);
     box-shadow: 0px 20px 25px 10px var(--shadow-color);
+    animation-name: spawn;
+    animation-duration: 0.5s;
+    margin-bottom: 20px;
+    animation-timing-function: ease;
 }
 .content_area{
     width: 100%;
@@ -185,6 +193,7 @@ button{
     padding: 15px; 
     border-radius: 10px;
     border: none;
+    transition: var(--transition-duration) var(--transition-ease);
 }
 button:hover{
     background-color: var(--button-highlight);
@@ -213,6 +222,7 @@ button:hover{
     border-radius: 10px;
     border: 1px solid var(--border-color);
     background-color: var(--bg-color-light);
+    transition: var(--transition-duration) var(--transition-ease);
 }
 .content:hover{
     background-color: var(--box-color-highly-faded);
@@ -261,6 +271,9 @@ button:hover{
     box-shadow: 0px 20px 25px 10px var(--shadow-color);
     text-align: center;
     padding: 50px;
+    animation-name: spawn;
+    animation-duration: 0.7s;
+    animation-timing-function: ease;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -280,15 +293,19 @@ label{
     width: 195px;
     border-radius: 10px;
     border: 2px dashed var(--border-color);
+    cursor: pointer;
 }
 label:hover{
     color: var(--text-color-bright);
     border: 2px dashed var(--box-color-faded);
     background-color: var(--box-color-faded);
 }
+.property-price{
+    color: var(--highlight-green);
+}
 @media (max-width: 935px) {
     body{
-        padding-top: 240px;
+        padding-top: 230px;
     }
     .nav_bar{
     grid-template-columns: 225px 1fr;
@@ -318,4 +335,12 @@ label:hover{
     grid-area: 2/1/3/4;
     justify-content: space-between;
 }
+}
+@keyframes spawn {
+    0%{
+        transform: translateY(5vh);
+    }
+    100%{
+        transform: translate(0);
+    }
 }
