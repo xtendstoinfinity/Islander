@@ -45,6 +45,14 @@
     color: var(--text-color-faded);
     text-align: center;
 }
+.sell_area input{
+    background-color: var(--box-color-faded);
+    border-radius: 10px;
+    border: 1px dashed var(--border-color);
+    padding: 10px 40px;
+    color: var(--text-color-faded);
+    text-align: center; 
+}
 .sell_area div{
     align-items: center;
 }
@@ -65,6 +73,8 @@ body::-webkit-scrollbar{
     display: none;
 }
 body{
+    display: flex;
+    flex-direction: column;
     scrollbar-width: 0px;
     color: var(--text-color);
     background-color: var(--bg-color-dark);
@@ -222,6 +232,22 @@ button:hover{
     text-align: center;
     margin: 40px;
     gap: 15px;
+}
+.login_container{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-family:'Times New Roman', Times, serif;
+    background-color: var(--bg-color-light);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 20px 25px 10px var(--shadow-color);
+    animation-name: spawn;
+    animation-duration: 0.7s;
+    margin: 50px;
+    animation-timing-function: ease;
 }
 .sell_area div{
     display: flex;
