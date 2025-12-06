@@ -65,7 +65,7 @@ let properties = [
         ["Commercial","Rental","Plot","Industrial","Farmland"]
     ),
     new Property(
-        "Rishihood Univerysity",
+        "Rishihood University",
         "Sonipat, India",
         "$10",
         "https://images.financialexpressdigital.com/2022/06/Rishohood-01.png",
@@ -176,7 +176,6 @@ function displayPopup(property){
     let overlay = document.getElementById("popup_overlay");
     let box = document.getElementById("popup_box");
 
-    // Build tag HTML
     let tagHTML = "";
     for (let t of property.tags) {
         tagHTML += `<span class="tag">${t}</span>`;
