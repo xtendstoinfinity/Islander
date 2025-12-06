@@ -108,10 +108,14 @@ let properties = [
     )
 ];
 let container = document.getElementsByClassName("content_area")[0];
+
+
 function addContent(property) {
     let card = document.createElement("div");
     card.className = "content";
-
+    card.addEventListener("click", () => {
+        displayPopup(property);
+    });
     card.innerHTML = `
         <div class="img_dock">
             <img draggable="false" src="${property.image}">
@@ -127,12 +131,14 @@ function addContent(property) {
     `;
     container.appendChild(card);
 }
+
 function LoadAll(){
     for(let property of properties){
         addContent(property);
     }
 }
 LoadAll();
+
 let tags = document.getElementsByClassName("category_tag");
 let search = document.getElementById("search_bar");
 search.addEventListener("keydown", (e) =>{
@@ -151,6 +157,8 @@ search.addEventListener("keydown", (e) =>{
         }
     }
 });
+
+
 for (let tag of tags) {
     tag.addEventListener("click", (e) => {
         container.innerHTML = ""
@@ -164,3 +172,41 @@ for (let tag of tags) {
         }
     });
 }
+function displayPopup(property){
+    let overlay = document.getElementById("popup_overlay");
+    let box = document.getElementById("popup_box");
+
+    // Build tag HTML
+    let tagHTML = "";
+    for (let t of property.tags) {
+        tagHTML += `<span class="tag">${t}</span>`;
+    }
+
+    box.innerHTML = `
+        <div class="popup_close" onclick="closePopup()">✖</div>
+        <img src="${property.image}" draggable="false">
+        <h2>${property.name}</h2>
+        <p><strong>Location:</strong> ${property.location}</p>
+        <p><strong>Price:</strong> ${property.price}</p>
+        <p><strong>Description:</strong>  
+            This is a placeholder description for the property.  
+            You can replace this text with whatever detailed info you want.
+        </p>
+        <h3>Tags</h3>
+        <div>${tagHTML}</div>
+        <br>
+        <button class="buy_button" onclick="window.location.href='login.html'">
+            Buy
+        </button>
+    `;
+
+    overlay.classList.remove("hidden");
+}
+function closePopup(){
+    document.getElementById("popup_overlay").classList.add("hidden");
+}
+document.getElementById("popup_overlay").addEventListener("click", (e) => {
+    if (e.target.id === "popup_overlay") {
+        closePopup();
+    }
+});
