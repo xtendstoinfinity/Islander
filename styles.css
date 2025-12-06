@@ -162,6 +162,7 @@ body{
     border-radius: 10px;
     background-color: var(--box-color-faded);
     cursor: pointer;
+    transition: var(--transition-duration) var(--transition-ease);
 }
 #sale{
     color: var(--text-color-bright);
@@ -343,6 +344,9 @@ label:hover{
 }
 .property-price{
     color: var(--highlight-green);
+}
+.category_tag:hover{
+    background-color: var(--button-color);
 }
 @media (max-width: 960px) {
     body{
